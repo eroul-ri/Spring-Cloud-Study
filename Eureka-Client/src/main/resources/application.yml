@@ -1,0 +1,16 @@
+server:
+  # 0 -> 0번 포트 설정시 랜덤한 포트로 서비스 실행
+  port: 0
+
+spring:
+  application:
+    name: user-service
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url: # 현재 서비스가 등록될 Server
+      defaultZone: http://127.0.0.1:8761/eureka
