@@ -5,9 +5,8 @@ spring:
   application:
     name: discovery-service
 
-# eureka ??
-eureka:
-  # ?? ??? ??? ?????? ???? ??.
+# eureka 설경
+eureka:  # 서버 자신을 클라이언트로 등록하지 않음.
   client:
     register-with-eureka: false
     fetch-registry: false
