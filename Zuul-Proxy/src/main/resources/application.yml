@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: my-zuul-service
+
+zuul:
+  # path\uB85C \uC694\uCCAD\uC774 \uC624\uBA74 routing\uD560 url\uC744 \uC815\uC758\uD568.
+  routes:
+    first-service:
+      path: /first-service/**
+      url: http://localhost:8081
+    second-service:
+      path: /second-service/**
+      url: http://localhost:8082
