@@ -5,7 +5,7 @@ spring:
     name: my-zuul-service
 
 zuul:
-  # path\uB85C \uC694\uCCAD\uC774 \uC624\uBA74 routing\uD560 url\uC744 \uC815\uC758\uD568.
+  # path로 요청이 들어오면 routing 해줄 url(경로 설정)
   routes:
     first-service:
       path: /first-service/**
