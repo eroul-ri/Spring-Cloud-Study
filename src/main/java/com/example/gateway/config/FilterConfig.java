@@ -3,12 +3,11 @@ package com.example.gateway.config;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * yml에 작성한 정보를 java configuration 을 통해 필터 구현
  */
-@Configuration
+// @Configuration
 public class FilterConfig {
 
 	@Bean
