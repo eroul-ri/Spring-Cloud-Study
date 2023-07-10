@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FirstServiceController {
 
-	@GetMapping("/welcome")
+	@GetMapping("/first-service/welcome")
 	public String welcome() {
 		return "Hello World, Welcome First Service";
 	}
