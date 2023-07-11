@@ -4,8 +4,8 @@ server:
 
 eureka:
   client:
-    fetch-registry: false
-    register-with-eureka: false
+    fetch-registry: true
+    register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
 
@@ -22,15 +22,15 @@ spring:
             postLogger: true
       routes:
         - id: first-service
-          uri: http://localhost:8081/
-          predicates: # \uC870\uAC74
+          uri: lb://MY-FIRST-SERVICE # 포트에 종속되지 않고, 서비스 명으로 포워딩을 할 수 있음.
+          predicates: # 조건
             - Path=/first-service/**
-          filters: # custom filter \uB4F1\uB85D
+          filters: # custom filter 등록
             - CustomFilter
         #            - AddRequestHeader=first-request, first-request-header2
         #            - AddResponseHeader=first-response, first-response-header2
         - id: second-service
-          uri: http://localhost:8082/
+          uri: lb://MY-SECOND-SERVICE
           predicates:
             - Path=/second-service/**
           filters:
