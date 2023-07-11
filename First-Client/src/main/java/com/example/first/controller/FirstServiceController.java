@@ -7,6 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class FirstServiceController {
 
+	private Environment env;
+
+	public FirstServiceController(Environment env) {
+		this.env = env;
+	}
+
 	@GetMapping("/first-service/welcome")
 	public String welcome() {
 		return "Hello World, Welcome First Service";
@@ -19,7 +25,9 @@ public class FirstServiceController {
 	}
 
 	@GetMapping("/first-service/check")
-	public String check() {
-		return "Hi There, This is a message from First Service";
+	public String check(HttpServletRequest request) {
+		log.info("Request Server Port :{}", request.getServerPort());
+		return String.format("Hi There, This is a message from First Service Port : %s",
+			env.getProperty("local.server.port"));
 	}
 }
